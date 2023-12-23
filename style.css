@@ -1,0 +1,219 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: myfont;
+    src: url(assets/fonts/Inter-VariableFont_slnt\,wght.ttf);
+}
+body{
+    background-color: #fefdfa;
+    font-family: myfont;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, max-content);
+    grid-template-areas: "nav nav nav"
+                         "img img side"
+                         "box1 box2 side"
+                         "foot1 foot2 foot3";
+    grid-gap: 20px;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+nav a{
+    padding: 10px 25px;
+}
+.header{
+    grid-area: nav;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav a{
+    color: hsl(236, 13%, 42%);
+    transition: 0.5s ease-in-out;
+    border: none;
+    /* display: none; */
+}
+.nav a:hover{
+    color: hsl(5, 85%, 63%);
+}
+.image{
+    grid-area: img;
+}
+.image img{
+    height: 100%;
+    width: 100%;
+}
+.open,.close{
+    display: none;
+}
+.box1{
+    grid-area: box1;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+.box2{
+    grid-area: box2;
+    color: hsl(240, 100%, 5%);
+    line-height: 1.5em;
+    font-weight: 500;
+}
+.box2 button{
+    margin-top: 5em;
+    background-color: hsl(240, 100%, 5%);
+    color: hsl(36, 100%, 99%);
+    padding: 1em 1.5em;
+    border: none;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+.box2 button:hover{
+    background-color: hsl(5, 85%, 63%);
+}
+.side{
+    grid-area: side;
+    background-color: hsl(240, 100%, 5%);
+    padding: 15px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: hsl(236, 13%, 42%);
+}
+.side h1{
+    font-size: 2.5em;
+    color: hsl(35, 77%, 62%);
+}
+.side a{
+    color: hsl(36, 100%, 99%);
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 2;
+}
+
+.first{
+    grid-area: foot1;
+    display: flex;
+    height: 70%;
+}
+.second{
+    grid-area: foot2;
+    display: flex;
+    height: 70%;
+}
+.third{
+    grid-area: foot3;
+    display: flex;
+    height: 70%;
+}
+.sugg{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    
+}
+.sugg a{
+    color: hsl(240, 100%, 5%);
+    padding: 10px 0px;
+    font-weight: 550;
+}
+.sugg h1,p {
+    color: hsl(233, 8%, 79%);
+}
+.nav a {
+  position: relative;
+  text-decoration: none;
+  color: hsl(236, 13%, 42%);
+}
+
+.nav a:hover {
+  color: hsl(5, 85%, 63%);
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: hsl(5, 85%, 63%);
+  transition: width 0.5s ease-in-out;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1000px) {
+  body{
+    grid-template-rows: repeat(7, max-content);
+    grid-template-areas: "nav nav nav"
+                         "img img side"
+                         "box1 box1 side"
+                         "box2 box2 side"
+                         "foot1 foot2 foot3";
+  }
+}
+@media only screen and (max-width: 700px) {
+  body{
+    grid-template-columns: 1fr;
+    grid-template-areas: "nav"
+                         "img"
+                         "box1"
+                         "box2"
+                         "side"
+                         "foot1"
+                         "foot2"
+                         "foot3";
+    }
+    .nav{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 40%;
+        height: 100vh;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 100;
+        background-color: whitesmoke;
+        backdrop-filter: blur(10px);
+        transition: all 0.5s ease-in-out;
+        transform: translateX(100%);
+
+    }
+    .open{
+        display: block;
+    }
+
+  .close{
+    display: none;
+  }
+  .close{
+    position: absolute;
+    right: 10%;
+    top: 3%;
+  }
+  
+}
